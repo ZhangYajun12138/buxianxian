@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test2</title>
+    <style>
+    .dropdown{
+        postion:relative;
+        display: inline-block;
+    }
+
+    .dropdownlist{
+        display:none;
+        postion:absolute;
+        background-color:#f9f9f9;
+        width:160px;
+    }
+    li,    li a{padding:10px;}
+
+    .dropdown:hover{background-color:#ccc;}
+    .dropdown:hover .dropdownlist{display:block;}
+
+    ul{list-style-type: none}
+
+    .dropdownlist a:hover{
+        background-color:#00ffff;
+    }
+</style>
+</head>
+<body>
+<div class="dropdown">
+<a href="#">link1</a>
+<ul class="dropdownlist">
+    <li><a href="#" tabindex="-1">innertext</a></li>
+    <li><a href="#" tabindex="-1">innertext</a></li>
+    <li><a href="#" tabindex="-1">innertext</a></li>
+    <li><a href="#" tabindex="-1">innertext</a></li>
+    <li><a href="#" tabindex="-1">innertext</a></li>
+    <li><a href="#" tabindex="-1">innertext</a></li>
+    <li><a href="#" tabindex="-1">innertext</a></li>
+    <li><a href="#" tabindex="-1">innertext</a></li>
+</ul>
+</div>
+</body>
+</html>

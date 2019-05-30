@@ -1,0 +1,5 @@
+1.unittest.TestCase：TestCase类，所有测试用例类继承的基本类。
+	class BaiduTest(unittest.TestCase):
+2.unittest.main()：将一个单元测试模块变为可直接运行的测试脚本。main（）方法使用TestLoder类来搜索所有办好在该模块中以“test”开头的测试方法，并以ASCII码的顺序加载测试用例自动执行。
+3.unit.TestSuite()：创建测试套件
+4.unittest.TextTestRunner(verbosity=2)

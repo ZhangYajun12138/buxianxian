@@ -1,0 +1,196 @@
+http://c.biancheng.net/view/2427.html
+
+sys 模块代表了 Python 解释器，主要用于获取和 Python 解释器相关的信息：
+
+sys.argv：获取运行 Python 程序的命令行参数。其中 sys.argv[0] 通常就是指该 Python 程序，sys.argv[1] 代表为 Python 程序提供的第一个参数，sys.argv[2] 代表为 Python 程序提供的第二个参数……依此类推。
+sys.byteorder：显示本地字节序的指示符。如果本地字节序是大端模式，则该属性返回 big；否则返回 little。
+sys.copyright：该属性返回与 Python 解释器有关的版权信息。
+sys.executable：该属性返回 Python 解释器在磁盘上的存储路径。
+sys.exit()：通过引发 SystemExit 异常来退出程序。将其放在 try 块中不能阻止 finally 块的执行。
+sys.flags：该只读属性返回运行 Python 命令时指定的旗标。
+sys.getfilesystemencoding()：返回在当前系统中保存文件所用的字符集。
+sys.getrefcount(object)：返回指定对象的引用计数。前面介绍过，当 object 对象的引用计数为 0 时，系统会回收该对象。
+sys.getrecursionlimit()：返回 Python 解释器当前支持的递归深度。该属性可通过 setrecursionlimit() 方法重新设置。
+sys.getswitchinterval()：返回在当前 Python 解释器中线程切换的时间间隔。该属性可通过 setswitchinterval() 函数改变。
+sys.implementation：返回当前 Python 解释器的实现。
+sys.maxsize：返回 Python 整数支持的最大值。在 32 位平台上，该属性值为 2**31-1；在 64 位平台上，该属性值为 2**63-1。
+sys.modules：返回模块名和载入模块对应关系的字典。
+sys.path：该属性指定 Python 查找模块的路径列表。程序可通过修改该属性来动态增加 Python 加载模块的路径。
+sys.platform：返回 Python 解释器所在平台的标识符。
+sys.stdin：返回系统的标准输入流——一个类文件对象。
+sys.stdout：返回系统的标准输出流——一个类文件对象。
+sys.stderr：返回系统的错误输出流——一个类文件对象。
+sys.version：返回当前 Python 解释器的版本信息。
+sys.winver：返回当前 Python 解释器的主版本号。
+
+os 模块代表了程序所在的操作系统，主要用于获取程序运行所在操作系统的相关信息：
+
+os.name：返回导入依赖模块的操作系统名称，通常可返回 'posix'、'nt'、 'java' 等值其中之一。
+os.environ：返回在当前系统上所有环境变量组成的字典。
+os.fsencode(filename)：该函数对类路径（path-like）的文件名进行编码。
+os.fsdecode(filename)：该函数对类路径（path-like）的文件名进行解码。
+os.PathLike：这是一个类，代表一个类路径（path-like）对象。
+os.getenv(key, default=None）：获取指定环境变量的值。
+os.getlogin()：返回当前系统的登录用户名。与该函数对应的还有 os.getuid()、os.getgroups()、os.getgid() 等函数，用于获取用户 ID、用户组、组 ID 等，这些函数通常只在 UNIX 系统上有效。
+os.getpid()：获取当前进程 ID。
+os.getppid()：获取当前进程的父进程 ID。
+os.putenv(key, value)：该函数用于设置环境变量。
+os.cpu_count()：返回当前系统的 CPU 数量。
+os.sep：返回路径分隔符。
+os.pathsep：返回当前系统上多条路径之间的分隔符。一般在 Windows 系统上多条路径之间的分隔符是英文分号（;）；在 UNIX 及类 UNIX 系统（如 Linux、Mac os X）上多条路径之间的分隔符是英文冒号（:）。
+os.linesep：返回当前系统的换行符。一般在 Windows 系统上换行符是“\r\n”：在 UNIX 系统上换行符是“\n”；在 Mac os X 系统上换行符是“\r”。
+os.urandom(size)：返回适合作为加密使用的、最多由 N 个字节组成的 bytes 对象。该函数通过操作系统特定的随机性来源返回随机字节，该随机字节通常是不可预测的，因此适用于绝大部分加密场景。
+
+random 模块主要包含生成伪随机数的各种功能变量和函数：
+
+random.seed(a=None, version=2)：指定种子来初始化伪随机数生成器。
+random.randrange(start, stop[, stop])：返回从 start 开始到 stop 结束、步长为 step 的随机数。其实就相当于 choice(range(start, stop, step)) 的效果，只不过实际底层并不生成区间对象。
+random.randint(a, b)：生成一个范围为 a≤N≤b 的随机数。其等同于 randrange(a, b+1) 的效果。
+random.choice(seq)：从 seq 中随机抽取一个元素，如果 seq 为空，则引发 IndexError 异常。
+random.choices(seq, weights=None, cum_weights=None, k=1)：从 seq 序列中抽取 k 个元素，还可通过 weights 指定各元素被抽取的权重（代表被抽取的可能性高低）。
+random.shuffle(x[, random])：对 x 序列执行洗牌“随机排列”操作。
+random.sample(population, k)：从 population 序列中随机抽取 k 个独立的元素。
+random.random()：生成一个从0.0（包含）到 1.0（不包含）之间的伪随机浮点数。
+random.uniform(a, b)：生成一个范围为 a≤N≤b 的随机数。
+random.expovariate(lambd)：生成呈指数分布的随机数。其中 lambd 参数(其实应该是 lambda，只是 lambda 是 Python 关键字，所以简写成 lambd）为 1 除以期望平均值。如果 lambd 是正值，则返回的随机数是从 0 到正无穷大；如果 lambd 为负值，则返回的随机数是从负无穷大到 0。
+
+time 模块主要包含各种提供日期、时间功能的类和函数。该模块既提供了把日期、时间格式化为字符串的功能，也提供了从字符串恢复日期、时间的功能：
+
+time.asctime([t])：将时间元组或 struct_time 转换为时间字符串。如果不指定参数 t，则默认转换当前时间。
+time.ctime([secs])：将以秒数代表的时间转换为时间宇符串。Python 可以用从 1970 年 1 月 1 日 0 点整到现在所经过的秒数来代表当前时间，比如我们写 30 秒，那么意味着时间是 1970 年 1 月 1 日 0 点 0 分 30 秒。但需要注意的是，在实际输出时可能会受到时区的影响，比如中国处于东八区，因此实际上会输出 1970 年 1 月 1 日 8 点 0 分 30 秒。
+time.gmtime([secs])：将以秒数代表的时间转换为 struct_time 对象。如果不传入参数，则使用当前时间。
+time.localtime([secs])：将以秒数代表的时间转换为代表当前时间的 struct_time 对象。如果不传入参数，则使用当前时间。
+time.mktime(t)：它是 localtime 的反转函数，用于将 struct_time 对象或元组代表的时间转换为从 1970 年 1 月 1 日 0 点整到现在过了多少秒。
+time.perf_counter()：返回性能计数器的值。以秒为单位。
+time.process_time()：返回当前进程使用 CPU 的时间。以秒为单位。
+time.sleep(secs)：暂停 secs 秒，什么都不干。
+time.strftime(format[, t])：将时间元组或 struct_time 对象格式化为指定格式的时间字符串。如果不指定参数 t，则默认转换当前时间。
+time.strptime(string[, format])：将字符串格式的时间解析成 struct_time 对象。
+time.time()：返回从 1970 年 1 月 1 日 0 点整到现在过了多少秒。
+time.timezone：返回本地时区的时间偏移，以秒为单位。
+time.tzname：返回本地时区的名字。
+
+JSON 是一种轻量级、跨平台、跨语言的数据交换格式，JSON 格式被广泛应用于各种语言的数据交换中：
+json.dump(obj, fp, *, skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, cls=None, indent=None, separators=None, default=None, sort_keys=False, **kw)：将 obj 对象转换成 JSON 字符串输出到 fp 流中，fp 是一个支持 write() 方法的类文件对象。
+json.dumps(obj, *, skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan= True, cls=None, indent=None, separators=None, default=None, sort_keys=False, **kw)：将 obj 对象转换为 JSON 字符串，并返回该JSON 字符串。
+json.load(fp, *, cls=None, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, object_pairs_hook=None, **kw)：从 fp 流读取 JSON 字符串，将其恢复成 JSON 对象，其中 fp 是一个支持 write() 方法的类文件对象。
+json.loads(s, *, encoding=None, cls=None, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, object_pairs_hook=None, **kw)：将 JSON 字符串 s 恢复成 JSON 对象。
+
+正则表达式（Regular Expression）用于描述一种字符串匹配的模式，它可用于检查一个字符串是否含有某个子串，也可用于从字符串中提取匹配的子串，或者对字符串中匹配的子串执行替换操作：
+re.compile(pattern, flags=0)：该函数用于将正则表达式字符串编译成 _sre.SRE_Pattern 对象，该对象代表了正则表达式编译之后在内存中的对象，它可以缓存并复用正则表达式字符串。如果程序需要多次使用同一个正则表达式字符串，则可考虑先编译它。
+re.match(pattern, string, flags=0)：尝试从字符串的开始位置来匹配正则表达式，如果从开始位置匹配不成功，match() 函数就返回 None 。其中 pattern 参数代表正则表达式；string 代表被匹配的字符串；flags 则代表正则表达式的匹配旗标。该函数返回 _sre.SRE_Match 对象，该对象包含的 span(n) 方法用于获取第 n+1 个组的匹配位置，group(n) 方法用于获取第 n+1 个组所匹配的子串。
+re.search(pattern, string, flags=0)：扫描整个字符串，并返回字符串中第一处匹配 pattern 的匹配对象。其中 pattern 参数代表正则表达式；string 代表被匹配的字符串；flags 则代表正则表达式的匹配旗标。该函数也返回 _sre.SRE_Match 对象。
+根据上面介绍不难发现，match() 与 search() 的区别在于，match() 必须从字符串开始处就匹配，但 search() 可以搜索整个字符串。
+re.findall(pattern, string, flags=0)：扫描整个字符串，并返回字符串中所有匹配 pattern 的子串组成的列表。其中 pattern 参数代表正则表达式；string 代表被匹配的宇符串；flags 则代表正则表达式的匹配旗标。
+re.finditer(pattern, string, flags=0)：扫描整个字符串，并返回字符串中所有匹配 pattern 的子串组成的迭代器，迭代器的元素是 _sre.SRE_Match 对象。其中 pattern 参数代表正则表达式；string 代表被匹配的字符串；flags 则代表正则表达式的匹配旗标。
+从上面介绍不难看出，findall() 与 finditer() 函数的功能基本相似，区别在于它们的返回值不同，findall() 函数返回所有匹配 patten 的子串组成的列表；而 finditer() 函数则返回所有匹配 pattern 的子串组成的选代器。
+re.fullmatch(pattem, string, flags=0)：该函数要求整个字符串能匹配 pattern，如果匹配则返回包含匹配信息的 _sre.SRE_Match 对象；否则返回 None。
+re.sub(pattern, repl, string, count=0, flags=0)：该函数用于将 string 字符串中所有匹配 pattern 的内容替换成 repl；repl 既可是被替换的字符串，也可是一个函数。count 参数控制最多替换多少次，如果指定 count 为 0 ，则表示全部首换。
+re.split(pattem, string, maxsplit=0, flags=0)：使用 pattern 对 string 进行分割，该函数返回分割得到的多个子串组成的列表。其中 maxsplit 参数控制最多分割几次。
+re.purge()：清除正则表达式缓存。
+re.escape(pattern)：对模式中除 ASCII 字符、数值、下画线（_）之外的其他字符进行转义。
+sre.SRE_Match 对象包含了如下方法或属性：
+match.group([group1,...])：获取该匹配对象中指定组所匹配的字符串。
+match.__getitem__(g)：这是 match.group(g) 的简化写法。由于 match 对象提供了 __getitem__() 方法，因此程序可使用 match[g] 来代替 match.group(g)。
+match.groups(default=None)：返回 match 对象中所有组所匹配的字符串组成的元组。
+match.groupdict(default= None)：返回 match 对象中所有组所匹配的字符串组成的字典。
+match.start([group])：获取该匹配对象中指定组所匹配的字符串的开始位置。
+match.end([group])：获取该匹配对象中指定组所匹配的宇符串的结束位置。
+match.span([group])：获取该匹配对象中指定组所匹配的字符串的开始位置和结束位置。该方法相当于同时返回 start() 和 end() 方法的返回值。
+match.pos：该属性返回传给正则表达式对象的 search()、match() 等方法的 pos 参数。
+match.endpos：该属性返回传给正则表达式对象的 search()、match() 等方法的 endpos 参数。
+match.lastindex：该属性返回最后一个匹配的捕获组的整数索引。如果没有组匹配，该属性返回 None。例如用 (a)b、((a)(b)) 或 ((ab)) 对字符串‘ab’执行匹配，该属性都会返回 1；但如果使用 (a)(b) 正则表达式对‘ab’执行匹配，则 lastindex 等于 2。
+match.lastgroup：该属性返回最后一个匹配的捕获组的名字；如果该组没有名字或根本没有组匹配，该属性返回 None。
+match.re：该属性返回执行正则表达式匹配时所用的正则表达式。
+match.string：该属性返回执行正则表达式匹配时所用的字符串。
+
+set 集合是可变容器，程序可以改变容器中的元素。与 set 对应的还有 frozenset 集合，frozenset 是 set 的不可变版本，它的元素是不可变的。
+set 集合有如下两个特征：
+set 不记录元素的添加顺序。
+元素不允许重复。
+# 使用花括号构建set集合
+c = {'白骨精'}
+# 添加元素
+c.add("孙悟空")
+c.add(6)
+print("c集合的元素个数为:" , len(c)) # 输出3
+# 删除指定元素
+c.remove(6)
+print("c集合的元素个数为:" , len(c)) # 输出2
+# 判断是否包含指定字符串
+print("c集合是否包含'孙悟空'字符串:" , ("孙悟空" in c)) # 输出True
+c.add("轻量级Java EE企业应用实战")
+print("c集合的元素：" , c)
+# 使用set()函数（构造器）来创建set集合
+books = set()
+books.add("轻量级Java EE企业应用实战")
+books.add("疯狂Java讲义")
+print("books集合的元素：" , books)
+# issubset()方法判断是否为子集合
+print("books集合是否为c的子集合？", books.issubset(c)) # 输出False
+# issubset()方法与<=运算符效果相同
+print("books集合是否为c的子集合？", (books <= c)) # 输出False
+# issuperset()方法判断是否为父集合
+# issubset和issuperset其实就是倒过来判断
+print("c集合是否完全包含books集合？", c.issuperset(books)) # 输出False
+# issuperset()方法与>=运算符效果相同
+print("c集合是否完全包含books集合？", (c >= books)) # 输出False
+# 用c集合减去books集合里的元素，不改变c集合本身
+result1 = c - books
+print(result1)
+# difference()方法也是对集合做减法，与用-执行运算的效果完全一样
+result2 = c.difference(books)
+print(result2)
+# 用c集合减去books集合里的元素，改变c集合本身
+c.difference_update(books)
+print("c集合的元素：" , c)
+# 删除c集合里的所有元素
+c.clear()
+print("c集合的元素：" , c)
+# 直接创建包含元素的集合
+d = {"疯狂Java讲义", '疯狂Python讲义', '疯狂Kotlin讲义'}
+print("d集合的元素：" , d)
+# 计算两个集合的交集，不改变d集合本身
+inter1 = d & books
+print(inter1)
+# intersection()方法也是获取两个集合的交集，与用&执行运算的效果完全一样
+inter2 = d.intersection(books)
+print(inter2)
+# 计算两个集合的交集，改变d集合本身
+d.intersection_update(books)
+print("d集合的元素：" , d)
+# 将range对象包装成set集合
+e = set(range(5))
+f = set(range(3, 7))
+print("e集合的元素：" , e)
+print("f集合的元素：" , f)
+# 对两个集合执行异或运算
+xor = e ^ f
+print('e和f执行xor的结果：', xor)
+# 计算两个集合的并集，不改变e集合本身
+un = e.union(f)
+print('e和f执行并集的结果：', un)
+# 计算两个集合的并集，改变e集合本身
+e.update(f)
+print('e集合的元素：', e)
+<=：相当于调用 issubset() 方法，判断前面的 set 集合是否为后面的 set 集合的子集合。
+>=：相当于调用 issuperset() 方法，判断前面的 set 集合是否为后面的 set 集合的父集合。
+-：相当于调用 difference() 方法，用前面的 set 集合减去后面的 set 集合的元素。
+&：相当于调用 intersection() 方法，用于获取两个 set 集舍的交集。
+^：计算两个集合异或的结果，就是用两个集合的并集减去交集的元素。
+frozenset 的作用主要有两点：
+当集合元素不需要改变时，使用 frozenset 代替 set 更安全。
+当某些 API 需要不可变对象时，必须用 frozenset 代替set。比如 dict 的 key 必须是不可变对象，因此只能用 frozenset；再比如 set 本身的集合元素必须是不可变的，因此 set 不能包含 set，set 只能包含 frozenset。
+
+
+在“数据结构”课程中最常讲授的数据结构有栈、队列、双端队列。
+
+栈是一种特殊的线性表，它只允许在一端进行插入、删除操作，这一端被称为栈顶（top），另一端则被称为栈底（bottom）。
+从栈顶插入一个元素被称为进栈，将一个元素插入栈顶被称为“压入栈”，对应的英文说法为 push；相应地，从栈顶删除一个元素被称为出栈，将一个元素从栈顶删除被称为“弹出栈”，对应的英文说法为 pop。
+
+
+
+对于栈而言，最先入栈的元素位于栈底，只有等到上面所有元素都出栈之后，栈底的元素才能出栈。因此栈是一种后进先出（LIFO）的线性表。
+队列也是一种特殊的线性表，它只允许在表的前端（front）进行删除操作，在表的后端（rear）进行插入操作。进行插入操作的端被称为队尾，进行删除操作的端被称为队头。
+对于一个队列来说，每个元素总是从队列的 rear 端进入队列的，然后等待该元素之前的所有元素都出队之后，当前元素才能出队。因此，队列是一种先进先出（FIFO）的线性表。
+双端队列（即此处介绍的 deque）代表一种特殊的队列，它可以在两端同时进行插入、删除操作。
