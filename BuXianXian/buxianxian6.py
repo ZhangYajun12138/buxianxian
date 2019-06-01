@@ -25,7 +25,7 @@ Date：2019-5-30
 # print("素数是：",result_list2)
 
 from math import sqrt
-lists = tuple(range(2,1001))
+lists = tuple(range(2,1001,2))
 result_list = list(lists[::1])
 
 for i in lists:
