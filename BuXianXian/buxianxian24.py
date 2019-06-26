@@ -1,4 +1,4 @@
-# coding:utf-8
+
 # 杨辉三角
 
 def main():
@@ -14,7 +14,7 @@ def main():
             print(yh[row][col], end='\t')
         print()
 
-
+    print("你是谁")
 
 if __name__ == '__main__':
     main()
