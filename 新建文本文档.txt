@@ -1,10 +1,13 @@
-python3.7¹Ù·½ÎÄµµ
-https://docs.python.org/zh-cn/3.7/library/index.html
+# coding:utf-8
 
-Django¿ò¼Ü
-https://www.ibm.com/developerworks/cn/linux/l-django/
 
-JMETER
-http://www.ltesting.net/ceshi/open/kyxncsgj/jmeter/
+#python3.7¹Ù·½ÎÄµµ
+#https://docs.python.org/zh-cn/3.7/library/index.html
 
-https://www.cnblogs.com/dinghanhua/tag/Jmeter/default.html?page=2
+#Django¿ò¼Ü
+#https://www.ibm.com/developerworks/cn/linux/l-django/
+
+#JMETER
+#http://www.ltesting.net/ceshi/open/kyxncsgj/jmeter/
+
+#https://www.cnblogs.com/dinghanhua/tag/Jmeter/default.html?page=2
